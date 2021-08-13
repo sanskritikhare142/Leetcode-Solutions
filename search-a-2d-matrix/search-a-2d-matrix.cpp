@@ -27,7 +27,6 @@ public:
                 }
             }
         }
-        cout<<i<<m[0].size()-1;
         return binarySearch(m, t, i, 0, m[0].size()-1);
     }
 };
