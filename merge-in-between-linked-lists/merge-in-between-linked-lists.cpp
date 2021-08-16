@@ -11,16 +11,22 @@
 class Solution {
 public:
     ListNode* mergeInBetween(ListNode* list1, int a, int b, ListNode* list2) {
-        auto temp=list1;
+        ListNode *temp=list1;
         int c=0;
         while(c+1!=a){
             c++;
             temp=temp->next;
         }
-        auto temp1=temp;
+        ListNode *temp1=temp;
         while(c!=b){
             c++;
             temp1=temp1->next;
+        }
+        ListNode *removeHead=temp->next;
+        while(removeHead->next!=temp1->next){
+            ListNode *rm=removeHead;
+            removeHead=removeHead->next;
+            delete rm;
         }
         temp->next=list2;
         while(temp->next!=NULL){
