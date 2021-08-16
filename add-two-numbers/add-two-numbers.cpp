@@ -18,29 +18,13 @@ public:
         l2=l2->next;
         int c=a/10;
         while(l1!=NULL || l2!=NULL){
-            ListNode *node=new ListNode();
-            if(l1==NULL ){
-                a=l2->val+c;
-                    c=a/10;
-                    a=a%10;
-                node->val=a;
-                l2=l2->next;
-            }
-            else if(l2==NULL){
-                a=l1->val+c;
-                    c=a/10;
-                    a=a%10;
-                node->val=a;
-                l1=l1->next;
-            }
-            else{
-                a=l1->val+l2->val+c;
-                    c=a/10;
-                    a=a%10;
-                node->val=a;
-                l1=l1->next;
-                l2=l2->next;
-            }
+            int x=(l1==NULL? 0: l1->val);
+            int y=(l2==NULL? 0: l2->val);
+            a=x+y+c;
+            c=a/10;
+            ListNode *node=new ListNode(a%10);
+            if (l1!=NULL) l1=l1->next;
+            if (l2!=NULL) l2=l2->next;
             if(anshead->next==NULL){
                 anshead->next=node;
             }
