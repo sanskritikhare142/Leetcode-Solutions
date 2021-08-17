@@ -1,7 +1,6 @@
 class Solution {
 public:
-    vector<int> countPoints(vector<vector<int>>& points, vector<vector<int>>& queries) {
-        unordered_map<string, bool>m;
+        vector<int> countPoints(vector<vector<int>>& points, vector<vector<int>>& queries) {
         vector<int>ans(queries.size(),0);
         for(int i=0;i<queries.size();i++){
             for(int j=0;j<points.size();j++){
