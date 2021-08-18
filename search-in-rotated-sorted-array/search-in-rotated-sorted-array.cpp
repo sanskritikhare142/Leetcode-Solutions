@@ -1,19 +1,19 @@
 class Solution {
 public:
     int binarySearch(vector<int>& a, int i, int t, int l, int h){
-        int m=(l+h)/2;
-        if(l>h){
-            return -1;
+        while(l<=h){
+            int m=(l+h)/2;
+            if(a[m]==t){
+                return m;
+            }
+            else if(t<a[m]){
+                h=m-1;
+            }
+            else{
+                l=m+1;
+            }
         }
-        if(a[m]==t){
-            return m;
-        }
-        else if(t<a[m]){
-            return binarySearch(a,i,t,l,m-1);
-        }
-        else{
-            return binarySearch(a, i,t,m+1,h);
-        }
+        return -1;
     }
     int search(vector<int>& a, int target) {
         int i, n=a.size();
